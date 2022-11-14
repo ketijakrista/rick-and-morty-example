@@ -1,0 +1,61 @@
+@import "variables";
+
+.paginator {
+  display: flex;
+  align-items: center;
+}
+
+.paginator-step-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.paginator-step {
+  display: flex;
+  align-items: center;
+}
+
+.paginator-link {
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: $color-medium-purple;
+    color: $color-white;
+    font-weight: 700;
+  }
+
+  &.active {
+    background-color: $color-medium-purple;
+    color: $color-white;
+    font-weight: 700;
+  }
+}
+
+.arrow-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &.arrow-btn-right {
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  img {
+    width: 1.2rem;
+  }
+
+  &:disabled {
+    filter: invert(74%) sepia(9%) saturate(318%) hue-rotate(179deg) brightness(90%) contrast(94%);
+  }
+}
