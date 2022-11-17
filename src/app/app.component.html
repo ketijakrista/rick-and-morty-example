@@ -1,15 +1,2 @@
-<h1>{{ title }}</h1>
-<app-loader></app-loader>
-<ul>
-  <li *ngFor="let item of itemsToDisplay">
-    {{ item }}
-  </li>
-</ul>
-
-<app-paginator
-  [currentPage]="page"
-  [total]="total"
-  (goToPageEvent)="goToPage($event)"
-  (goToNextPageEvent)="goToPage($event)"
-  (goToPreviousPageEvent)="goToPage($event)"></app-paginator>
+<app-header></app-header>
 <router-outlet></router-outlet>

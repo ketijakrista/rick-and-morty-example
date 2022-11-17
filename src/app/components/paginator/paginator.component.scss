@@ -1,8 +1,10 @@
 @import "variables";
+@import "media-queries";
 
 .paginator {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .paginator-step-list {
@@ -10,7 +12,12 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1rem;
+  gap: 0.5rem;
+  transition: gap 0.3s ease-in-out;
+
+  @include extraSmall {
+    gap: 1rem;
+  }
 }
 
 .paginator-step {
@@ -20,12 +27,18 @@
 
 .paginator-link {
   cursor: pointer;
-  width: 2rem;
-  height: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  font-size: 1.2rem;
+  transition: font-size 0.3s ease-in-out;
+
+  @include extraSmall {
+    font-size: 1.6rem;
+  }
 
   &:hover {
     background-color: $color-medium-purple;
@@ -44,6 +57,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  filter: $filter-medium-purple;
 
   &.arrow-btn-right {
     img {
@@ -56,6 +70,6 @@
   }
 
   &:disabled {
-    filter: invert(74%) sepia(9%) saturate(318%) hue-rotate(179deg) brightness(90%) contrast(94%);
+    filter: none;
   }
 }

@@ -3,11 +3,17 @@
     <li class="paginator-step">
       <button
         [disabled]="currentPage === 1"
-        (click)="goToPrevious()"
+        (click)="goToPage(currentPage - 1)"
         class="arrow-btn">
         <img src="/assets/images/icons/icon-arrow.svg" alt="" />
       </button>
     </li>
+    <li *ngIf="currentPage > 4" class="paginator-step">
+      <a class="paginator-link" (click)="goToPage(1)">
+        1
+      </a>
+    </li>
+    <li *ngIf="currentPage > 4" class="paginator-step">...</li>
     <li *ngFor="let page of pages" class="paginator-step">
       <a
         (click)="goToPage(page)"
@@ -16,10 +22,16 @@
         {{ page }}
       </a>
     </li>
+    <li *ngIf="currentPage < total - 3" class="paginator-step">...</li>
+    <li *ngIf="currentPage < total - 3" class="paginator-step">
+      <a class="paginator-link" (click)="goToPage(total)">
+        {{ total }}
+      </a>
+    </li>
     <li class="paginator-step">
       <button
         [disabled]="currentPage === total"
-        (click)="goToNext()"
+        (click)="goToPage(currentPage + 1)"
         class="arrow-btn arrow-btn-right">
         <img src="/assets/images/icons/icon-arrow.svg" alt="" />
       </button>

@@ -1,6 +1,10 @@
+$color-dark-gunmetal: #1B2430;
+$color-american-blue: #3F3B6C;
 $color-royal-purple: #6c4ab6;
 $color-medium-purple: #8d72e1;
 $color-jordy-blue: #8d9eff;
 $color-diamond: #b9e0ff;
 $color-black: #000;
 $color-white: #fff;
+
+$filter-medium-purple: invert(72%) sepia(72%) saturate(5254%) hue-rotate(221deg) brightness(91%) contrast(93%);

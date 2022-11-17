@@ -15,12 +15,6 @@ export class PaginatorComponent implements OnChanges {
   @Output()
   goToPageEvent = new EventEmitter<number>();
 
-  @Output()
-  goToNextPageEvent = new EventEmitter<number>();
-
-  @Output()
-  goToPreviousPageEvent = new EventEmitter<number>();
-
   pages: number[] = [];
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -33,14 +27,6 @@ export class PaginatorComponent implements OnChanges {
 
   goToPage(page: number): void {
     this.goToPageEvent.emit(page);
-  }
-
-  goToNext(): void {
-    this.goToNextPageEvent.emit(this.currentPage + 1);
-  }
-
-  goToPrevious(): void {
-    this.goToPreviousPageEvent.emit(this.currentPage - 1);
   }
 
   getPages(total: number, currentPage: number): number[] {
