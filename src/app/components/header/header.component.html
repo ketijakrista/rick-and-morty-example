@@ -2,4 +2,8 @@
   <a class="header-link" routerLink="/characters" routerLinkActive="active">
     Characters
   </a>
+  <label class="switch">
+    <input [(ngModel)]="isDarkTheme" (ngModelChange)="toggleTheme($event)" type="checkbox" checked>
+    <span class="slider round"></span>
+  </label>
 </header>

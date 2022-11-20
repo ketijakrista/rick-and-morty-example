@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { CharacterApiResponse } from '../models/character.model';
+import { Character, CharacterApiResponse } from '../models/character.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,5 +15,11 @@ export class CharacterService {
     const url = `https://rickandmortyapi.com/api/character/?page=${page}`;
 
     return this.http.get<CharacterApiResponse>(url);
+  }
+
+  getCharacter(id: number): Observable<Character> {
+    const url = `https://rickandmortyapi.com/api/character/${id}`;
+
+    return this.http.get<Character>(url);
   }
 }

@@ -23,6 +23,7 @@
 .paginator-step {
   display: flex;
   align-items: center;
+  // color: $color-royal-purple;
 }
 
 .paginator-link {
@@ -35,6 +36,8 @@
   border-radius: 50%;
   font-size: 1.2rem;
   transition: font-size 0.3s ease-in-out;
+  text-decoration: none;
+  // color: $color-royal-purple;
 
   @include extraSmall {
     font-size: 1.6rem;
@@ -42,13 +45,13 @@
 
   &:hover {
     background-color: $color-medium-purple;
-    color: $color-white;
+    // color: $color-white;
     font-weight: 700;
   }
 
   &.active {
     background-color: $color-medium-purple;
-    color: $color-white;
+    // color: $color-white;
     font-weight: 700;
   }
 }

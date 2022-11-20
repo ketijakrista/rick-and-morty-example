@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Theme } from './models/theme.enum';
 
 @Component({
   selector: 'app-root',
@@ -6,23 +7,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'angular-boilerplate';
+  user = {
+    name: 'Ketija',
+    age: 78,
+  };
+
   page = 1;
-  items = [...Array(180).keys()].map((item) => `Item ${item + 1}`);
-  itemsToDisplay: string[] = [];
-  perPage = 10;
-  total = Math.ceil(this.items.length / this.perPage);
 
   ngOnInit(): void {
-    this.itemsToDisplay = this.paginate(this.page, this.perPage);
-  }
+    window.localStorage.setItem('cat', 'is hungry');
+    window.localStorage.setItem('user', JSON.stringify(this.user));
 
-  goToPage(page: number): void {
-    this.page = page;
-    this.itemsToDisplay = this.paginate(this.page, this.perPage);
-  }
+    const catInfo = window.localStorage.getItem('cat');
+    const userInfo = JSON.parse(window.localStorage.getItem('user') || '');
 
-  paginate(page: number, perPage: number): string[] {
-    return [...this.items.slice((page - 1) * perPage).slice(0, perPage)];
+    // console.log(catInfo);
+    // console.log(userInfo);
+
+    window.sessionStorage.setItem('hello', 'world');
+
+    const hello = window.sessionStorage.getItem('hello');
+
+    // console.log(hello);
+    // console.log('when not found', window.localStorage.getItem('aaa'));
+
+    window.localStorage.removeItem('cat');
+
+    document.cookie = 'username=ketija; expires=';
   }
 }

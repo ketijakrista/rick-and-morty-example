@@ -1,0 +1,32 @@
+@import "light-theme";
+@import "dark-theme";
+
+@function map-get-value($map, $key) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  }
+
+  @else {
+    @error "Error: Specified key #{$key} does not exist in the mapping"
+  }
+}
+
+@mixin set-theme($map) {
+  .layout {
+    background-color: map-get-value($map, background-color);
+    color: map-get-value($map, text-color);
+
+    a {
+      color: map-get-value($map, text-color);
+    }
+
+  }
+}
+
+.light-theme {
+  @include set-theme($light-theme)
+}
+
+.dark-theme {
+  @include set-theme($dark-theme)
+}
